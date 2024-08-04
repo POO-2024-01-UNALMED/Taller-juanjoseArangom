@@ -19,7 +19,10 @@ public class Alfabeto extends Pictograma{
     public String toString(){
         String impresion = "";
         for (int i = 0; i < letras.length; i++){
-            impresion += letras[i] + ", ";
+            impresion += letras[i];
+            if (i < letras.length - 1) {
+                impresion += ", ";
+            }
         }
         return impresion;
     }

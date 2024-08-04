@@ -1,5 +1,7 @@
 package comunicacion;
 
+import java.util.Arrays;
+
 public class Tesis extends Escrito{
     private String idea;
     private String[] argumentos;
@@ -7,12 +9,13 @@ public class Tesis extends Escrito{
     private String referencias;
     private String interpretacion;
 
-    public Tesis(String origen, String titulo, String autor, int paginas, String idea, String argumentos, String conclusion, String referencias){
+    public Tesis(String origen, String titulo, String autor, int paginas, String idea, String[] argumentos, String conclusion, String referencias, String interpretacion){
         super(origen, titulo, autor, paginas);
         this.idea = idea;
-        this.argumentos = new String[]{argumentos};
+        this.argumentos = argumentos;
         this.conclusion = conclusion;
         this.referencias = referencias;
+        this.interpretacion = interpretacion;
     }
 
     public int palabrasTotales(int palabrasPagina){
@@ -24,7 +27,7 @@ public class Tesis extends Escrito{
     }
 
     public String toString(){
-        return this.getOrigen() + "\n" + this.getTitulo() + "\n" + this.getAutor() + "\n" + this.getPaginas() + "\n" + idea + "\n" + argumentos + "\n" + conclusion + "\n" + referencias;
+        return this.getOrigen() + "\n" + this.getTitulo() + "\n" + this.getAutor() + "\n" + this.getPaginas() + "\n" + idea + "\n" + Arrays.toString(argumentos) + "\n" + conclusion + "\n" + referencias;
     }
 
     public String getIdea() {
@@ -35,8 +38,8 @@ public class Tesis extends Escrito{
         this.idea = idea;
     }
 
-    public int getArgumentos() {
-        return argumentos.length;
+    public String[] getArgumentos() {
+        return argumentos;
     }
 
     public void setArgumentos(String[] argumentos) {
